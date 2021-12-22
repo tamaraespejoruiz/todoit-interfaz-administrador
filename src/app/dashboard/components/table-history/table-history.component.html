@@ -1,0 +1,57 @@
+<table mat-table [dataSource]="dataSource">
+  
+    <!-- Cadete -->
+    <ng-container matColumnDef="cadete">
+        <th mat-header-cell *matHeaderCellDef> Cadete </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].cadete.fullName}}
+        </td>
+      </ng-container>    
+
+    <!-- Cliente -->
+    <ng-container matColumnDef="cliente">
+      <th mat-header-cell *matHeaderCellDef> Cliente </th>
+      <td mat-cell *matCellDef="let element">
+        {{element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].operator.fullName}}
+      </td>
+    </ng-container>
+
+    <!-- Dirección -->
+    <ng-container matColumnDef="direccion">
+      <th mat-header-cell *matHeaderCellDef> Dirección </th>
+      <td mat-cell *matCellDef="let element">
+        {{element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].operator.address}}
+      </td>
+    </ng-container>
+
+    <!-- Fecha -->
+    <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].operationDate.slice(0, -17)}}
+        </td>
+    </ng-container>
+
+    <!-- Hora CAMBIAR EL TIPOOOO DE IMPRESION -->
+    <ng-container matColumnDef="hora">
+        <th mat-header-cell *matHeaderCellDef> Hora </th>
+        <td mat-cell *matCellDef="let element">
+          {{element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].operationDate.slice(11, -11)}}
+        </td>
+    </ng-container>    
+    
+    <!-- Estado del Equipo -->
+    <ng-container matColumnDef="estadoDelEquipo">
+        <th mat-header-cell *matHeaderCellDef> Estado del equipo </th>
+        <td mat-cell *matCellDef="let element"> 
+            {{obtenerNombreEstadoEquipo(element.travelEquipmentDTOs[0].statusTravel)}} 
+        </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <!-- ESTO ES PARA EL FILTRO -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No hay datos todavía</td> 
+    </tr>
+</table>

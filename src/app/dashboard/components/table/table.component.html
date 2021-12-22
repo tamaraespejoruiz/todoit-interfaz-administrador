@@ -1,0 +1,49 @@
+<table mat-table [dataSource]="dataSource">
+  <!-- Tuve que agregar la etiqueta multitemplate para que funcione RARO -->
+  
+  <!-- Cliente -->
+  <ng-container matColumnDef="cliente">
+    <th mat-header-cell *matHeaderCellDef> Cliente </th>
+    <td mat-cell *matCellDef="let element">
+      {{element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].operator.fullName}}
+    </td>
+  </ng-container>
+
+  <!-- Dirección -->
+  <ng-container matColumnDef="direccion">
+    <th mat-header-cell *matHeaderCellDef> Dirección </th>
+    <td mat-cell *matCellDef="let element">
+      {{element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].operator.address}}
+    </td>
+  </ng-container>
+
+  <!-- Estado -->
+  <ng-container matColumnDef="estado">
+    <th mat-header-cell *matHeaderCellDef> Estado </th>
+    <td mat-cell *matCellDef="let element">
+      <!-- {{obtenerNombreStatusTravel(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length - 1].statusTravel)}} -->
+      <mat-form-field appearance="standard">
+        <mat-label>Estados</mat-label>
+        <mat-select (selectionChange)="cambiarEstado(element, $event)" [value]="obtenerStatusTravel(element)">
+          <mat-option value="1">1: Pendiente a retirar</mat-option>
+          <mat-option value="2">2: Retiro asignado</mat-option>
+          <mat-option value="3">3: Retirado</mat-option>
+          <mat-option value="4">4: Pendiente de reparación</mat-option>
+          <mat-option value="5">5: Reparado</mat-option>
+          <mat-option value="6">6: Entrega asignada</mat-option>
+          <mat-option value="7">7: Pendiente de entrega</mat-option>
+          <mat-option value="8">8: Entregado</mat-option>
+          <mat-option value="9">9: Recibido</mat-option>
+          <mat-option value="10">10: Renunciado</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <!-- ESTO ES PARA EL FILTRO -->
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No hay datos todavía</td> 
+  </tr>
+</table>

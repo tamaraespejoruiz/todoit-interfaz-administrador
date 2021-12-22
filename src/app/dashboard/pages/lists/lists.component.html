@@ -1,0 +1,24 @@
+<div class="contenedor">
+    <app-header></app-header>
+
+    <div class="buscador"> 
+        <mat-form-field appearance="standard">
+          <mat-label>Listas</mat-label>
+          <mat-select (selectionChange)="seleccionarFiltro()">
+            <mat-option value="clientes">Lista de clientes</mat-option>
+            <mat-option value="cadetes">Lista de cadetes</mat-option>
+            <mat-option value="administradores">Lista de administradores</mat-option>
+            <mat-option value="todos">Lista de todos</mat-option>
+        </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="contenedor-tabla">
+      <div class="mat-elevation-z8">
+          <div class="mas-contenedor">
+            <app-list></app-list>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" aria-label=""></mat-paginator>
+          </div> 
+      </div> 
+    </div>
+</div>

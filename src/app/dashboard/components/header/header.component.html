@@ -1,0 +1,19 @@
+<header> 
+    <!-- <mat-toolbar *ngIf="estaLoggeado()" color="primary"> -->
+      <mat-toolbar *ngIf="true" color="primary">
+        <mat-toolbar-row>
+            <img class="header-logo" src="../../../assets/imagen/logo.png" alt="Logo">
+            <span class="example-spacer"></span>
+                <button mat-button [matMenuTriggerFor]="menu" mat-icon-button class="example-icon">    
+                  <mat-icon>menu</mat-icon>                  
+                  <mat-menu #menu="matMenu">
+                    <button class="opciones" mat-menu-item [routerLink]="['/dashboard/register']" routerLinkActive="router-link-active">Registro</button>
+                    <button class="opciones" mat-menu-item [routerLink]="['/dashboard/travel']" routerLinkActive="router-link-active">Viajes</button>
+                    <button class="opciones" mat-menu-item [routerLink]="['/dashboard/history']" routerLinkActive="router-link-active">Historial de viajes</button>
+                    <button class="opciones" mat-menu-item [routerLink]="['/dashboard/lists']" routerLinkActive="router-link-active"> Listas</button>
+                    <button class="opciones" mat-menu-item (click)='cerrarSesion()'>Cerrar Sesion</button>
+                  </mat-menu>
+                </button>
+        </mat-toolbar-row>
+    </mat-toolbar>    
+</header>

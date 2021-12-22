@@ -1,0 +1,27 @@
+<div class="contenedor">
+  <app-header></app-header>
+
+  <h2 class="bienvenida"> ¡Bienvenido {{obtenerNombreAdministrador()}}!</h2>
+
+  <div class="buscador"> 
+    <mat-form-field appearance="standard">
+      <mat-label>Viajes</mat-label>
+      <mat-select (selectionChange)="seleccionarFiltro()">
+        <mat-option value="activos">Activos</mat-option>
+        <mat-option value="pendientes">Pendientes</mat-option>
+        <mat-option value="enCurso">En curso</mat-option>
+        <mat-option value="cancelados"> Cancelado </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="contenedor-tabla">
+    <div class="mat-elevation-z8">
+        <div class="mas-contenedor">
+          <app-table></app-table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" aria-label=""></mat-paginator>
+        </div> 
+    </div> 
+  </div>
+
+</div>

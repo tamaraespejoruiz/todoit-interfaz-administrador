@@ -1,0 +1,26 @@
+<div class="contenedor">
+    <div class="fondo"> 
+        <form class = "inicio-sesion" [formGroup]="formularioLogin" #formDirective=ngForm (ngSubmit)="onSubmit(formDirective) ">
+            <div class="logo-login">
+                <img class="tam-logo-login" src="../../../assets/imagen/login.png">
+            </div> 
+            <h2>¡Hola! Inicia sesión para continuar</h2>    
+            <mat-form-field class="input-form"appearance="fill">
+                <mat-label>Ingrese su mail</mat-label>
+                <mat-icon matSuffix> email</mat-icon>
+                <input matInput placeholder="pat@example.com" formControlName="email" required>
+                <mat-error *ngIf="formularioLogin.get('email')?.invalid"> Email invalido </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field class="input-form" appearance="fill">
+                <mat-label>Ingrese su contraseña</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <button (click)="onSubmit(formDirective)" mat-button color='primary' type="submit" [disabled]="!formularioLogin.valid"> Ingresar </button>
+        </form>
+    </div>    
+</div>
+

@@ -1,0 +1,8 @@
+{
+    "/api/*":{
+        "target":"http://vcoronado-001-site12.dtempurl.com/",
+        "secure": false, 
+        "changeOrigin": true, 
+        "logLevel": "debug"
+    }
+}
