@@ -1,6 +1,7 @@
-# TiLogisticsHubCadet
+# Interfaz del administrador
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
+En este proyecto se realizó la interfaz del administrador para TodoIT. La misma se encarga de dar de alta un cadete o cliente, administrar los viejas.
+Este proyecot se generó con [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
 
 ## Development server
 
